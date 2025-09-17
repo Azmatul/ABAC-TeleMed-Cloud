@@ -1,0 +1,85 @@
+# -----------------------------
+# Node / package managers
+# -----------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Package manager caches
+.npm/
+.pnpm-store/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# -----------------------------
+# Builds & caches
+# -----------------------------
+dist/
+build/
+out/
+.tmp/
+tmp/
+temp/
+.cache/
+.eslintcache
+.stylelintcache
+.vite/
+.turbo/
+
+# TypeScript
+*.tsbuildinfo
+
+# -----------------------------
+# Env & secrets
+# -----------------------------
+.env
+.env.*
+!.env.example
+.env.local
+.env.*.local
+
+# -----------------------------
+# Testing / Storybook / E2E
+# -----------------------------
+coverage/
+.nyc_output/
+.vitest/
+playwright-report/
+test-results/
+storybook-static/
+
+# -----------------------------
+# Editors / IDEs
+# -----------------------------
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.iml
+
+# -----------------------------
+# OS junk
+# -----------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Vim / swap
+*.swp
+*.swo
