@@ -1,31 +1,45 @@
-# Hey This is my University Thesis base Project.
 # 🚑 TeleMed ABAC — Secure Blockchain-Based Telemedicine System
 
-A full-stack decentralized telemedicine application that uses **Attribute-Based Access Control (ABAC)** on blockchain to securely manage patient data sharing between doctors and patients.
+![Status](https://img.shields.io/badge/status-active-success)
+![Tech](https://img.shields.io/badge/stack-blockchain%20%7C%20fastapi%20%7C%20react-blue)
+![License](https://img.shields.io/badge/license-academic-lightgrey)
+
+> 🎓 **University Thesis Project**
+> A decentralized telemedicine system leveraging **Blockchain + Attribute-Based Access Control (ABAC)** to ensure secure and transparent patient data sharing.
 
 ---
 
 ## 📌 Overview
 
-Traditional telemedicine systems suffer from **data privacy risks, unauthorized access, and lack of transparency**.
+Traditional telemedicine platforms often face critical issues such as:
 
-**TeleMed ABAC** solves these problems by integrating:
+* ❌ Unauthorized access to sensitive patient data
+* ❌ Lack of transparency in permission handling
+* ❌ Centralized data vulnerabilities
 
-* 🔗 Blockchain for **tamper-proof access control**
-* 🔐 ABAC for **fine-grained authorization**
-* 🌐 Full-stack architecture for real-world usability
+**TeleMed ABAC** addresses these challenges by combining:
 
-This project demonstrates how **smart contracts + modern web technologies** can build a secure, transparent, and decentralized healthcare system.
+* 🔗 **Blockchain** → Immutable & tamper-proof access control
+* 🔐 **ABAC Model** → Fine-grained, attribute-driven authorization
+* 🌐 **Full-Stack System** → Practical, real-world implementation
+
+This project demonstrates how **smart contracts + modern web technologies** can build a **secure, decentralized healthcare system**.
 
 ---
 
-## 🧠 How It Works (Simple Flow)
+## 🧠 Core Workflow
+
+```text
+User → Wallet Login → Registration → Admin Approval → Role Assigned (On-chain) → Secure Data Access
+```
+
+### Step-by-Step
 
 1. 👤 User connects wallet (MetaMask)
 2. 📝 Registers as **Doctor** or **Patient**
 3. 🛡️ Admin approves role via smart contract
-4. 🔑 Access permissions are enforced using **on-chain ABAC**
-5. 📂 Medical data access is controlled, secure, and auditable
+4. 🔑 Access permissions enforced using **on-chain ABAC policies**
+5. 📂 Secure and auditable medical data access
 
 ---
 
@@ -43,24 +57,24 @@ Blockchain (Solidity Smart Contract - ABAC)
 
 ## ⚙️ Technology Stack
 
-### 🔗 Blockchain
+### 🔗 Blockchain Layer
 
-* Solidity
-* Hardhat
-* Ethereum (Localhost / Sepolia)
-* MetaMask
+* **Solidity** – Smart contract logic (ABAC)
+* **Hardhat** – Development & deployment
+* **Ethereum (Localhost / Sepolia)** – Network
+* **MetaMask** – Wallet authentication
 
-### ⚙️ Backend
+### ⚙️ Backend Layer
 
-* FastAPI (Python)
-* SQLite / PostgreSQL
-* Uvicorn
+* **FastAPI (Python)** – REST API
+* **SQLite / PostgreSQL** – Data storage
+* **Uvicorn** – Server runtime
 
-### 🎨 Frontend
+### 🎨 Frontend Layer
 
-* React (Vite)
-* Tailwind CSS
-* Viem (Web3 interaction)
+* **React (Vite)** – UI framework
+* **Tailwind CSS** – Styling
+* **Viem** – Blockchain interaction
 
 ### 🧰 Tools
 
@@ -72,12 +86,12 @@ Blockchain (Solidity Smart Contract - ABAC)
 
 ## ✨ Key Features
 
-* 🔐 Attribute-Based Access Control (ABAC) on blockchain
-* 👥 Role-based system (Admin / Doctor / Patient)
+* 🔐 **On-chain Attribute-Based Access Control (ABAC)**
+* 👥 Role management (**Admin / Doctor / Patient**)
 * 🦊 Wallet-based authentication (MetaMask)
-* 📜 Smart contract role management (`grantRole`)
-* 📊 Transparent and auditable access logs
-* ⚡ Full-stack decentralized architecture
+* 📜 Smart contract role assignment (`grantRole`)
+* 📊 Transparent & auditable access system
+* ⚡ Fully integrated **decentralized full-stack architecture**
 
 ---
 
@@ -91,7 +105,7 @@ npm install
 npm run node
 ```
 
-New terminal:
+Open new terminal:
 
 ```bash
 npm run deploy:local
@@ -105,8 +119,8 @@ npm run deploy:local
 cd backend
 python -m venv .venv
 source .venv/bin/activate   # Windows: .\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
 
+pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
@@ -123,9 +137,9 @@ npm run dev
 
 ---
 
-### 4️⃣ MetaMask Setup
+### 4️⃣ MetaMask Configuration
 
-* Network: `http://127.0.0.1:8545`
+* RPC URL: `http://127.0.0.1:8545`
 * Chain ID: `31337`
 
 ---
@@ -147,49 +161,59 @@ npm run dev
 | Method | Endpoint       | Description         |
 | ------ | -------------- | ------------------- |
 | POST   | /register      | Create registration |
-| GET    | /register      | Get all requests    |
-| DELETE | /register/{id} | Delete request      |
+| GET    | /register      | Fetch all requests  |
+| DELETE | /register/{id} | Delete registration |
 
 ---
 
 ## 🧪 Development Notes
 
-* Uses **localStorage** for demo data persistence
-* Can be extended with backend DB integration
-* Supports both **Localhost** and **Sepolia testnet**
+* Uses **localStorage** for demo persistence
+* Easily extendable to full DB-backed system
+* Supports both **Localhost** and **Sepolia Testnet**
+
+---
+
+## 🔐 Security Perspective
+
+* Access control logic enforced **on-chain**
+* Eliminates centralized permission manipulation
+* Provides **auditability & transparency**
+* Reduces risk of unauthorized data exposure
 
 ---
 
 ## 🚧 Future Improvements
 
 * 🔐 End-to-end encryption for medical records
-* ☁️ IPFS integration for decentralized storage
-* 📱 Mobile app support
-* 🔔 Notification system for approvals
-* 🧾 Full audit trail dashboard
+* ☁️ IPFS for decentralized storage
+* 📱 Mobile application support
+* 🔔 Real-time notification system
+* 🧾 Advanced audit dashboard
 
 ---
 
 ## 🎓 Academic Context
 
-This project is developed as part of an undergraduate thesis:
-
 > **"A Blockchain-Based Attribute-Based Access Control System for Secure Patient Data Sharing in Telemedicine"**
+
+This project is developed as part of an undergraduate thesis focusing on **privacy, security, and decentralized healthcare systems**.
 
 ---
 
 ## 🤝 Contribution
 
-Feel free to fork, contribute, or raise issues. Suggestions are welcome!
+Contributions, suggestions, and improvements are welcome!
+Feel free to fork the repo or open an issue.
 
 ---
 
 ## 📜 License
 
-This project is for educational and research purposes.
+For **educational and research purposes only**.
 
 ---
 
 ## ⭐ Support
 
-If you found this helpful, consider giving a ⭐ on GitHub!
+If you found this project useful, consider giving it a ⭐ on GitHub!
