@@ -1,0 +1,68 @@
+services:
+
+  db:
+    image: postgres:17
+    container_name: telemed-db
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    ports:
+      - "5432:5432"
+
+
+  backend:
+    build:
+      context: ./backend
+
+    container_name: telemed-backend
+    restart: unless-stopped
+
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_ALGORITHM: ${JWT_ALGORITHM}
+
+    ports:
+      - "8000:8000"
+
+    depends_on:
+      - db
+
+
+  frontend:
+    build:
+      context: ./dapp-frontend
+      args:
+        VITE_API_URL: ${VITE_API_URL}
+        VITE_CHAIN_ID: ${VITE_CHAIN_ID}
+
+    container_name: telemed-frontend
+    restart: unless-stopped
+
+    ports:
+      - "3000:80"
+
+    depends_on:
+      - backend
+
+
+  blockchain:
+    build:
+      context: ./blockchain
+
+    container_name: telemed-blockchain
+    restart: unless-stopped
+
+    ports:
+      - "8545:8545"
+
+
+volumes:
+  postgres_data:

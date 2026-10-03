@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+from sqlalchemy import text
 from .database import Base, engine, SessionLocal
 from . import crud, schemas, models
 import os
@@ -45,3 +46,24 @@ def list_requests(db: Session = Depends(get_db)):
 def delete_request(req_id: int, db: Session = Depends(get_db)):
     crud.delete_request(db, req_id)
     return {"deleted": req_id}
+
+
+@app.get("/health")
+def health():
+    db = SessionLocal()
+
+    try:
+        db.execute(text("SELECT 1"))
+        return {
+            "status": "healthy",
+            "database": "connected"
+        }
+
+    except Exception:
+        return {
+            "status": "unhealthy",
+            "database": "disconnected"
+        }
+
+    finally:
+        db.close()
